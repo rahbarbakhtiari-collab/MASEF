@@ -1,0 +1,19 @@
+framework: MASEF
+framework_version: 0.1.0
+project:
+  name: ""
+  slug: ""
+  profile: generic
+  risk_level: unset
+  owner: ""
+  repository_visibility: private
+controls:
+  require_pull_request: true
+  require_ci: true
+  require_independent_review: true
+  require_staging: true
+  require_backup: true
+  require_tested_rollback: true
+  production_access_for_agents: false
+  network_access_default: false
+  religious_integrity_gate: false

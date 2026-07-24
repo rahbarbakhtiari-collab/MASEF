@@ -1,0 +1,25 @@
+name: Feature request
+about: درخواست قابلیت بر پایه نیاز واقعی و معیار پذیرش
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: مسئله چیست؟
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: نتیجه مورد انتظار کاربر
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: معیارهای پذیرش
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: خطرها، داده و دسترسی

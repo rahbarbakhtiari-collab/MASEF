@@ -1,0 +1,29 @@
+gates:
+  G0:
+    name: idea_validated
+    required_files:
+      - docs/00-governance/PROJECT-CHARTER.md
+      - docs/00-governance/RISK-PROFILE.md
+  G1:
+    name: product_ready
+    required_files:
+      - docs/01-product/REQUIREMENTS.md
+      - docs/01-product/ACCEPTANCE-CRITERIA.md
+  G2:
+    name: design_ready
+    required_files:
+      - docs/03-architecture/ARCHITECTURE.md
+      - docs/03-architecture/DATA-MODEL.md
+      - docs/04-security/THREAT-MODEL.md
+  G3:
+    name: harness_ready
+    required_files:
+      - AGENTS.md
+      - docs/06-quality/TEST-STRATEGY.md
+      - .github/workflows/framework-check.yml
+  G7:
+    name: release_ready
+    required_files:
+      - docs/07-operations/DEPLOYMENT.md
+      - docs/07-operations/ROLLBACK.md
+      - docs/08-evidence/EVIDENCE-PACK-TEMPLATE.md

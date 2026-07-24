@@ -1,0 +1,13 @@
+# این فایل نمونه است. پس از بررسی نسخه مستندات Codex، به `.codex/config.toml` کپی شود.
+# تنظیم محافظه‌کارانه برای کار روزمره:
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+allow_login_shell = false
+web_search = "cached"
+
+[sandbox_workspace_write]
+network_access = false
+
+# در پروژه‌های حساس، Auto-review جایگزین تأییدهای انسانی انتشار نمی‌شود.
+# approvals_reviewer = "auto_review"

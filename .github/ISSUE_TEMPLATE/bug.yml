@@ -1,0 +1,29 @@
+name: Bug report
+about: گزارش نقص با شواهد بازتولید
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: رفتار مورد انتظار
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: رفتار واقعی
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: مراحل بازتولید
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: لاگ یا تصویر پاک‌سازی‌شده
+  - type: textarea
+    id: environment
+    attributes:
+      label: نسخه‌ها و محیط
