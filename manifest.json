@@ -1,13 +1,13 @@
 {
   "framework": "MASEF",
-  "version": "0.1.0",
-  "generated": "2026-07-24",
-  "file_count": 69,
+  "version": "0.2.0",
+  "generated": "2026-07-27",
+  "file_count": 67,
   "validation_exit": 0,
   "tests_exit": 0,
   "validation_output": "MASEF validation passed. Required files: 15",
-  "tests_output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.001s\n\nOK",
-  "artifact_file_count": 71,
+  "tests_output": ".....\n----------------------------------------------------------------------\nRan 5 tests\n\nOK",
+  "artifact_file_count": 69,
   "bootstrap_smoke_exit": 0,
   "bootstrap_validation_exit": 0,
   "bootstrap_profiles_verified": true
