@@ -1,13 +1,15 @@
-# این فایل نمونه است. پس از بررسی نسخه مستندات Codex، به `.codex/config.toml` کپی شود.
-# تنظیم محافظه‌کارانه برای کار روزمره:
+# نمونه پیکربندی MASEF 0.2 برای اجرای خودمختار در Workspace.
+# پیش از کپی به `.codex/config.toml`، سازگاری گزینه‌ها را با نسخه Codex نصب‌شده بررسی کنید.
 
-approval_policy = "on-request"
+approval_policy = "never"
 sandbox_mode = "workspace-write"
 allow_login_shell = false
-web_search = "cached"
+web_search = "live"
 
 [sandbox_workspace_write]
-network_access = false
+network_access = true
 
-# در پروژه‌های حساس، Auto-review جایگزین تأییدهای انسانی انتشار نمی‌شود.
-# approvals_reviewer = "auto_review"
+# مرزهای واقعی اقدام در AGENTS.md تعریف شده‌اند:
+# کارهای محلی، تست، Git روی شاخه کاری و پژوهش فنی بدون توقف انجام می‌شوند.
+# Secret، خرید، حذف داده مهم، اقدام برگشت‌ناپذیر و Production پرخطر نیازمند تصمیم انسانی‌اند.
+# برای پروژه بحرانی می‌توان approval_policy را به "on-request" تغییر داد.
