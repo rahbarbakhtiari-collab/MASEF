@@ -12,8 +12,9 @@ class FrameworkTests(unittest.TestCase):
         self.assertIn('## چرخه مهندسی ثابت', text)
         self.assertIn('## موارد نیازمند توقف انسانی', text)
         self.assertIn('## پایان کار', text)
-        self.assertIn('PHP برابر `8.1`', text)
-        self.assertIn('WordPress برابر `7.2`', text)
+        self.assertIn('حداقل PHP برابر `8.1`', text)
+        self.assertIn('WordPress `7.0.2`', text)
+        self.assertNotIn('حداقل WordPress برابر `7.2`', text)
 
     def test_technical_profiles_exist(self):
         for profile in ['generic', 'wordpress-plugin', 'webapp', 'api-service']:
@@ -26,8 +27,10 @@ class FrameworkTests(unittest.TestCase):
         ).read_text(encoding='utf-8')
         markers = [
             '## ۲. چرخه مهندسی ثابت',
-            'PHP: `8.1`',
-            'WordPress: `7.2`',
+            'حداقل PHP کارخانه: `8.1`',
+            'WordPress `7.0.2`',
+            'آخرین نسخه پایدار رسمی',
+            'Alpha، Beta یا Release Candidate',
             'رهبر بختیاری',
             'GPL-2.0-or-later',
             'Telemetry',
@@ -39,6 +42,7 @@ class FrameworkTests(unittest.TestCase):
         ]
         for marker in markers:
             self.assertIn(marker, policy)
+        self.assertNotIn('- حداقل WordPress: `7.2`', policy)
 
     def test_quality_gates_keep_full_lifecycle(self):
         text = (ROOT / 'docs/00-governance/QUALITY-GATES.md').read_text(
@@ -54,6 +58,7 @@ class FrameworkTests(unittest.TestCase):
         )
         self.assertIn('## ۵. خلاصه محصول برای تأیید واحد', text)
         self.assertIn('تنها تأیید معمول مالک محصول', text)
+        self.assertIn('نسخه پایدار رسمی بررسی‌شده:', text)
 
     def test_skills_have_frontmatter(self):
         skills = list((ROOT / '.agents/skills').glob('*/SKILL.md'))
@@ -75,7 +80,7 @@ class FrameworkTests(unittest.TestCase):
     def test_version_is_consistent(self):
         version = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
         manifest = json.loads((ROOT / 'manifest.json').read_text(encoding='utf-8'))
-        self.assertEqual('0.3.0', version)
+        self.assertEqual('0.3.1', version)
         self.assertEqual(version, manifest['version'])
 
     def test_religious_workflow_is_removed(self):
