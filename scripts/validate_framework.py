@@ -33,12 +33,20 @@ FORBIDDEN_PATTERNS = [
 ]
 
 WORDPRESS_POLICY_MARKERS = [
-    'PHP: `8.1`',
-    'WordPress: `7.2`',
+    'حداقل PHP کارخانه: `8.1`',
+    'WordPress `7.0.2`',
+    'آخرین نسخه پایدار رسمی',
+    'Alpha، Beta یا Release Candidate',
     'رهبر بختیاری',
     'GPL-2.0-or-later',
     'Telemetry',
     'حذف کامل تنظیمات و داده‌ها هنگام حذف افزونه',
+]
+
+FORBIDDEN_ACTIVE_WORDPRESS_BASELINES = [
+    '- حداقل WordPress: `7.2`',
+    'WordPress `7.2+`',
+    'WordPress برابر `7.2`',
 ]
 
 
@@ -69,6 +77,9 @@ def main() -> int:
         for marker in WORDPRESS_POLICY_MARKERS:
             if marker not in policy:
                 errors.append(f'WORDPRESS POLICY MARKER MISSING: {marker}')
+        for marker in FORBIDDEN_ACTIVE_WORDPRESS_BASELINES:
+            if marker in policy:
+                errors.append(f'FORBIDDEN ACTIVE WORDPRESS BASELINE: {marker}')
 
     for p in ROOT.rglob('*'):
         if (
