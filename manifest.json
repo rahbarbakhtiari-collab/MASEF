@@ -1,14 +1,14 @@
 {
   "framework": "MASEF",
-  "version": "0.2.0",
-  "generated": "2026-07-27",
-  "file_count": 66,
-  "validation_exit": 0,
-  "tests_exit": 0,
-  "validation_output": "MASEF validation passed. Required files: 15",
-  "tests_output": ".....\n----------------------------------------------------------------------\nRan 5 tests\n\nOK",
-  "artifact_file_count": 68,
-  "bootstrap_smoke_exit": 0,
-  "bootstrap_validation_exit": 0,
-  "bootstrap_profiles_verified": true
+  "version": "0.3.0",
+  "generated": "2026-07-28",
+  "file_count": 67,
+  "validation_exit": null,
+  "tests_exit": null,
+  "validation_output": "Pending GitHub Actions validation for release/0.3-wordpress-factory",
+  "tests_output": "Pending GitHub Actions test run",
+  "artifact_file_count": null,
+  "bootstrap_smoke_exit": null,
+  "bootstrap_validation_exit": null,
+  "bootstrap_profiles_verified": null
 }
