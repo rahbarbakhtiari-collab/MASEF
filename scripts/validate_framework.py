@@ -25,6 +25,16 @@ REQUIRED = [
     '.github/workflows/framework-check.yml',
 ]
 
+ACTIVE_WORDPRESS_BASELINE_DOCS = [
+    'AGENTS.md',
+    'README.md',
+    'START-HERE.md',
+    '.agents/skills/wordpress-safety/SKILL.md',
+    'docs/00-governance/PROJECT-CHARTER.md',
+    'docs/00-governance/QUALITY-GATES.md',
+    'profiles/wordpress-plugin/PROFILE.md',
+]
+
 FORBIDDEN_PATTERNS = [
     'sk-proj-',
     'BEGIN PRIVATE KEY',
@@ -79,7 +89,18 @@ def main() -> int:
                 errors.append(f'WORDPRESS POLICY MARKER MISSING: {marker}')
         for marker in FORBIDDEN_ACTIVE_WORDPRESS_BASELINES:
             if marker in policy:
-                errors.append(f'FORBIDDEN ACTIVE WORDPRESS BASELINE: {marker}')
+                errors.append(f'FORBIDDEN ACTIVE WORDPRESS BASELINE IN POLICY: {marker}')
+
+    for rel in ACTIVE_WORDPRESS_BASELINE_DOCS:
+        path = ROOT / rel
+        if not path.is_file():
+            errors.append(f'MISSING ACTIVE WORDPRESS BASELINE DOCUMENT: {rel}')
+            continue
+        text = path.read_text(encoding='utf-8')
+        if '7.2' in text:
+            errors.append(f'UNRELEASED WORDPRESS 7.2 IN ACTIVE DOCUMENT: {rel}')
+        if '7.0.2' not in text:
+            errors.append(f'VERIFIED WORDPRESS 7.0.2 MARKER MISSING: {rel}')
 
     for p in ROOT.rglob('*'):
         if (
