@@ -1,15 +1,18 @@
 ---
 name: masef-project-intake
-description: Use when starting a software idea or when requirements are incomplete. Extract the outcome, ask only essential business questions, choose a risk mode, and continue into implementation when the task is clear.
+description: Use when starting a software idea. Turn a short idea into one product summary, obtain one product approval, choose a risk mode, and hand off to Codex without stage-by-stage approvals.
 ---
 
 # MASEF Project Intake
 
-1. Read only the request and documents relevant to the current task.
-2. Extract the problem, desired outcome, constraints, and acceptance checks.
-3. Answer technical questions from the repository, tools, documentation, or experiments instead of asking the product owner.
-4. Ask business questions only when the answer changes scope, cost, access, irreversible actions, or accepted risk.
-5. Choose `light`, `standard`, or `critical` execution mode.
-6. For light work, record a concise requirement and proceed directly to implementation.
-7. For standard or critical work, prepare a proportionate plan and continue without stage-by-stage approval.
-8. Stop only at the human decision points defined in `AGENTS.md`.
+1. Extract the real problem, desired outcome, users, constraints, and acceptance checks.
+2. Improve the idea so it is logical, configurable, maintainable, and extensible without speculative overengineering.
+3. Classify features as `essential`, `important`, and `future`.
+4. Resolve technical ambiguity through repository inspection, documentation, research, experiments, and tests.
+5. Ask the product owner only business questions that change product outcome, scope, cost, access, irreversible actions, or accepted risk.
+6. Choose `light`, `standard`, or `critical` and state the reason in the product summary; do not request a separate approval for classification.
+7. Write one clear product summary in `docs/00-governance/PROJECT-CHARTER.md`.
+8. Obtain one approval for that summary.
+9. After approval, hand off through repository documents and let Codex execute the full engineering lifecycle without intermediate approvals.
+10. Do not use the product owner as a messenger between ChatGPT and Codex.
+11. Stop only at the human decision points defined in `AGENTS.md`.
