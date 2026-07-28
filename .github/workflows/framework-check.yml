@@ -17,6 +17,23 @@ jobs:
         with:
           python-version: '3.13'
       - name: Validate framework structure
-        run: python scripts/validate_framework.py
+        id: framework_validation
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          python scripts/validate_framework.py 2>&1 | tee framework-validation.log
+      - name: Upload validation diagnostics
+        if: steps.framework_validation.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: masef-validation-report
+          path: framework-validation.log
+          retention-days: 7
+      - name: Enforce framework validation
+        if: steps.framework_validation.outcome == 'failure'
+        run: |
+          cat framework-validation.log
+          exit 1
       - name: Run framework tests
         run: python -m unittest discover -s tests -p 'test_*.py'
